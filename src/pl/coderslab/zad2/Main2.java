@@ -1,4 +1,6 @@
-public class Main4 {
+package pl.coderslab.zad2;
+
+public class Main2 {
     public static void main(String[] args) {
 
     }
