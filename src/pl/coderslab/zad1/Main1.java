@@ -5,35 +5,37 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main1 {
-    public static final int LOW = 1;
-    public static final int HIGH = 100;
+    private static final int LOW = 1;
+    private static final int HIGH = 100;
 
     public static void main(String[] args) {
-        int randomNumber = generateRandom();
-
-        Scanner scanner = new Scanner(System.in);
-        int numberToCheck = 0;
+        int randomNumber = generateNumber();
+        int number = 0;
         do {
             System.out.print("Zgadnij liczbę: ");
+            Scanner scanner = new Scanner(System.in);
             try {
-                numberToCheck = scanner.nextInt();
-                if(numberToCheck < randomNumber) {
-                    System.out.println("Za mało!");
-                } else if (numberToCheck > randomNumber){
-                    System.out.println("Za dużo.");
-                }
+                number = scanner.nextInt();
             } catch (InputMismatchException e) {
-                scanner.next();
-                System.out.println("To nie jest liczba!");
+                System.out.println("To nie jest liczba");
+                continue;
             }
-        } while (numberToCheck != randomNumber);
+
+            if (number > randomNumber) {
+                System.out.println("Za dużo!");
+            } else if (number < randomNumber) {
+                System.out.println("Za mało!");
+            }
+        } while (number != randomNumber);
 
         System.out.println("Zgadłeś!");
-        scanner.close();
     }
 
-    private static int generateRandom(){
+    static int generateNumber() {
         Random random = new Random();
-        return random.nextInt(HIGH-LOW) + LOW;
+        return random.nextInt(HIGH - LOW) + LOW;
     }
 }
+
+
+
