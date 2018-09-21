@@ -9,7 +9,7 @@ public class Main1 {
     private static final int HIGH = 100;
 
     public static void main(String[] args) {
-        int randomNumber = generateNumber();
+        int randomNumber = generateNumber(LOW, HIGH);
         int number = 0;
         do {
             System.out.print("Zgadnij liczbę: ");
@@ -31,9 +31,9 @@ public class Main1 {
         System.out.println("Zgadłeś!");
     }
 
-    static int generateNumber() {
+    public static int generateNumber(int low, int high) {
         Random random = new Random();
-        return random.nextInt(HIGH - LOW) + LOW;
+        return random.nextInt(high - low) + low;
     }
 }
 
